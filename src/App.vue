@@ -12,6 +12,8 @@
       root-margin="300px"
     >
       <async-component
+        id="test-id"
+        class="test-css-class test-class"
         :coords="[
           54.82896654088406,
           39.831893822753904

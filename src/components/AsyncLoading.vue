@@ -69,6 +69,8 @@ export default {
             // Собираем чанк в компонент
             const Component = Vue.extend(chunk.default)
 
+            console.log('asyncComponent', this.asyncComponent)
+
             // Создаем компонент
             const component = new Component({
               propsData: this.asyncComponent.data.attrs
@@ -89,6 +91,9 @@ export default {
 
             // Собираем html
             component.$mount()
+
+            // Вешаем css классы
+            component.$el.classList.add(...this.asyncComponent.data.staticClass.split(' '))
 
             // Добавляем компонент в DOM вместо якоря
             this.$el.outerHTML = component.$el.outerHTML
