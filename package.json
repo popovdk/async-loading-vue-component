@@ -1,7 +1,7 @@
 {
   "name": "@popovdk/async-loading-vue-component",
   "author": "popovdk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Async loading component Vue 2",
   "scripts": {
     "serve": "vue-cli-service serve",

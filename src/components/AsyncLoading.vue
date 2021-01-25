@@ -69,19 +69,20 @@ export default {
             // Собираем чанк в компонент
             const Component = Vue.extend(chunk.default)
 
-            console.log('asyncComponent', this.asyncComponent)
-
             // Создаем компонент
             const component = new Component({
               propsData: this.asyncComponent.data.attrs
             })
 
             // Пробрасываем слоты
-            for (const [name, render] of Object.entries(this.asyncComponent.data.scopedSlots)) {
-              if (typeof render === 'function') {
-                component.$slots[name] = render()
+            if (this.asyncComponent.data.scopedSlots) {
+              for (const [name, render] of Object.entries(this.asyncComponent.data.scopedSlots)) {
+                if (typeof render === 'function') {
+                  component.$slots[name] = render()
+                }
               }
             }
+
             component.$slots.default = this.asyncComponent.componentOptions.children
 
             // Вешаем события
