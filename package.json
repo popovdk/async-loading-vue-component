@@ -1,14 +1,14 @@
 {
   "name": "@popovdk/async-loading-vue-component",
   "author": "popovdk",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Async loading component Vue 2",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build-bundle": "vue-cli-service build --target lib --name async-loading ./src/index.js",
     "lint": "vue-cli-service lint",
-    "publish": "npm publish --access public",
+    "publish": "npm run build-bundle && npm publish --access public",
     "bundle": "npm run build-bundle"
   },
   "main": "dist/async-loading.common.js",

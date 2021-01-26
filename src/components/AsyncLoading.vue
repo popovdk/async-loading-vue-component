@@ -113,7 +113,9 @@ export default {
             component.$mount()
 
             // Вешаем css классы
-            component.$el.classList.add(...this.asyncComponent.data.staticClass.split(' '))
+            if (this.asyncComponent.data.staticClass) {
+              component.$el.classList.add(...this.asyncComponent.data.staticClass.split(' '))
+            }
 
             // Переносим data аттрибуты
             for (const attr in this.$el.dataset) {
