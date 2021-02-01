@@ -6,6 +6,8 @@
     <div style="height: 300px; background: red; color: white; padding: 10px; font-size: 36px;">
       При достижении этой области начнется сразу загрузка компонента, благодаря root-margin = 300px и threshold = 0
     </div>
+    {{ mapCoords }}
+    <button @click="mapCoords = [54, 20]"> Тест реактивности пропсов </button>
     <async-loading
       :component="() => import('@/components/MapLocation')"
       :threshold="0"
@@ -14,10 +16,7 @@
       <async-component
         id="test-id"
         class="test-css-class test-class"
-        :coords="[
-          54.82896654088406,
-          39.831893822753904
-        ]"
+        :current-coords="mapCoords"
         zoom="10"
         @click="clickHandler"
       >
@@ -42,6 +41,14 @@ export default {
     Loader,
     AsyncComponent,
     AsyncLoading
+  },
+  data () {
+    return {
+      mapCoords: [
+        54.82896654088406,
+        39.831893822753904
+      ]
+    }
   },
   methods: {
     clickHandler (event) {

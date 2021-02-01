@@ -71,7 +71,6 @@ Vue.use(AsyncLoadingVueComponent)
     Какой то текст в default слоте
     <template #title> Тестовый заголовок из слота title </template>
   </async-component>
-  <loader slot="loader"/>
 </async-loading>
 ```
 

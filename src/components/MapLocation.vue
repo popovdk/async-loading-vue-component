@@ -3,7 +3,7 @@
     <h2> <slot name="title" /> </h2>
     <h3> <slot /> </h3>
     <yandex-map
-      :coords="coords"
+      :coords="currentCoords"
       :zoom="zoom"
       class="test"
       @click="$emit('click', $event)"
@@ -18,7 +18,7 @@ import { yandexMap } from 'vue-yandex-maps'
 export default {
   name: 'MapLocation',
   props: {
-    coords: {
+    currentCoords: {
       type: Array
     },
     zoom: {
